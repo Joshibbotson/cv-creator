@@ -23,22 +23,29 @@ body {
     }
     main {
         margin-bottom: 4rem;
-        input[type="text"],
-        textarea {
+        input[type="text"] {
             border: 0;
-            resize: none;
+            padding: 0.5rem;
+            border-radius: 0.3rem;
+            color: grey;
         }
         textarea {
             height: 3rem;
+            border: 0;
+            resize: none;
+            border-radius: 0.3rem;
+            font-family: inherit;
+            padding: 0.2rem 0.4rem;
+            color: grey;
         }
 
         //cv form//
         .cvform-container {
-            background-color: #f6f4f4;
+            background-color: #eee9e9;
             -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.34);
             -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.34);
             box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.34);
-            border-radius: 0.2rem;
+            border-radius: 0.3rem;
             display: flex;
             justify-content: center;
             flex-direction: column;

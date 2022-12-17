@@ -39,7 +39,7 @@ export default function Pinfo() {
             <textarea
                 type="textArea"
                 id="summary"
-                defaultValue="summary"
+                defaultValue="Summary"
                 onClick={removeDefaultValue}
             />
         </div>
