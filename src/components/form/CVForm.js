@@ -30,6 +30,7 @@ export default function CVForm() {
         console.log(targetComp)
         return (
             <button
+                className="deleteBtn"
                 onClick={() => {
                     setComponents(
                         components.filter(item => {
