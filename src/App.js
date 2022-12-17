@@ -1,12 +1,15 @@
 import Nav from "./components/Nav"
 import Main from "./components/Main"
-import React from "react"
+import React, { Fragment } from "react"
+import Footer from "./components/Footer"
+
 function App() {
     return (
-        <React.Fragment>
+        <Fragment>
             <Nav />
             <Main />
-        </React.Fragment>
+            <Footer />
+        </Fragment>
     )
 }
 
