@@ -31,7 +31,6 @@ export default function Experience() {
                 defaultValue="To"
                 onClick={removeDefaultValue}
             />
-            {/* <button> DELETE</button> */}
         </div>
     )
 }

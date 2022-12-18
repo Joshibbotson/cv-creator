@@ -2,13 +2,15 @@ import Pinfo from "./Pinfo"
 import Experience from "./Experience"
 import { useState } from "react"
 import uniquid from "uniquid"
+import Education from "./Education"
 
 export default function CVForm() {
     const [components, setComponents] = useState(() => [
         { comp: <Experience />, key: uniquid() },
+        { comp: <Education />, key: uniquid() },
     ])
 
-    const AddButton = () => {
+    const AddExperience = () => {
         return (
             <button
                 onClick={() => {
@@ -26,8 +28,25 @@ export default function CVForm() {
         )
     }
 
+    const AddEducation = () => {
+        return (
+            <button
+                onClick={() => {
+                    setComponents([
+                        ...components,
+                        {
+                            comp: <Education />,
+                            key: uniquid(),
+                        },
+                    ])
+                }}
+            >
+                Add
+            </button>
+        )
+    }
+
     const HandleDelete = ({ targetComp }) => {
-        console.log(targetComp)
         return (
             <button
                 className="deleteBtn"
@@ -50,17 +69,37 @@ export default function CVForm() {
         <section className="cvform-container">
             <Pinfo />
 
-            <h2 className="experience-title">Experience</h2>
-            {/* <Experience /> */}
+            <h2 className="sub-title">Experience</h2>
 
-            {components.map(item => (
-                <div key={item.key} className="section-container">
-                    {item.comp}
-                    <HandleDelete targetComp={item} />
-                </div>
-            ))}
+            {components
+                .filter(item => {
+                    if (item.comp.type.name !== "Education") {
+                        return item
+                    }
+                })
+                .map(item => (
+                    <div key={item.key} className="section-container">
+                        {item.comp}
+                        <HandleDelete targetComp={item} />
+                    </div>
+                ))}
 
-            <AddButton />
+            <AddExperience />
+
+            <h2 className="sub-title">Education</h2>
+            {components
+                .filter(item => {
+                    if (item.comp.type.name !== "Experience") {
+                        return item
+                    }
+                })
+                .map(item => (
+                    <div key={item.key} className="section-container">
+                        {item.comp}
+                        <HandleDelete targetComp={item} />
+                    </div>
+                ))}
+            <AddEducation />
         </section>
     )
 }
