@@ -4,9 +4,12 @@ import { React, useState } from "react"
 
 export default function Main() {
     const [values, setValues] = useState({
-        title: "Mr",
-        firstName: "",
-        lastName: "",
+        title: "",
+        fullName: "",
+        address: "",
+        phoneNumber: "",
+        email: "",
+        summary: "",
     })
 
     return (
