@@ -3,7 +3,6 @@ import PName from "./PName"
 export default function CVPreview({ values, setValues }) {
     return (
         <section className="cvpreview-container">
-            cv preview
             <div className="cvpreview-title">
                 <PName
                     title={values.title}

@@ -4,9 +4,24 @@ import { useState } from "react"
 import uniquid from "uniquid"
 import Education from "./Education"
 
-export default function CVForm({ values, setValues }) {
+export default function CVForm({
+    values,
+    setValues,
+    currentExpValue,
+    expArr,
+    setExperienceValues,
+}) {
     const [components, setComponents] = useState(() => [
-        { comp: <Experience />, key: uniquid() },
+        {
+            comp: (
+                <Experience
+                    currentExpValue={currentExpValue}
+                    expArr={expArr}
+                    setExperienceValues={setExperienceValues}
+                />
+            ),
+            key: uniquid(),
+        },
         { comp: <Education />, key: uniquid() },
     ])
 
@@ -17,7 +32,13 @@ export default function CVForm({ values, setValues }) {
                     setComponents([
                         ...components,
                         {
-                            comp: <Experience />,
+                            comp: (
+                                <Experience
+                                    currentExpValue={currentExpValue}
+                                    expArr={expArr}
+                                    setExperienceValues={setExperienceValues}
+                                />
+                            ),
                             key: uniquid(),
                         },
                     ])
