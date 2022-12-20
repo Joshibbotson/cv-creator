@@ -1,0 +1,139 @@
+$roboto-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e6e6e6;
+    font-family: $roboto-font;
+
+    h1 {
+        background-color: white;
+        text-align: center;
+        padding: 1.2rem 0;
+        font-family: inherit;
+    }
+
+    nav {
+        font-size: 1rem;
+    }
+
+    main {
+        margin-bottom: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        input[type="text"] {
+            border: 0;
+            padding: 0.5rem;
+            border-radius: 0.3rem;
+            color: grey;
+        }
+        textarea {
+            height: 3rem;
+            border: 0;
+            resize: none;
+            border-radius: 0.3rem;
+            font-family: inherit;
+            padding: 0.2rem 0.4rem;
+            color: grey;
+        }
+
+        .cvform-container {
+            background-color: #eee9e9;
+            -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.34);
+            -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.34);
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.34);
+            border-radius: 0.3rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 1rem;
+            margin: 1rem;
+
+            .section-container {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+
+                .deleteBtn {
+                    margin-bottom: 0.5rem;
+                }
+            }
+            h2.pinfo-title {
+                font-size: 1.2rem;
+            }
+            h2.sub-title {
+                margin-top: 2rem;
+                margin-bottom: 0.35rem;
+            }
+
+            button {
+                border: 0;
+                font-size: 1.1em;
+                font-weight: 650;
+                font-family: inherit;
+                background-color: rgb(32, 32, 32);
+                color: white;
+                border-radius: 0.2rem;
+            }
+            button:hover {
+                background-color: black;
+            }
+        }
+
+        .cvpreview-container {
+            background-color: #f6f4f4;
+            -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.34);
+            -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.34);
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.34);
+            border-radius: 0.2rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 1rem;
+            margin: 1rem;
+        }
+    }
+    footer {
+        bottom: 0;
+        width: 100%;
+        margin-top: 5rem;
+        height: 5.6vh;
+        position: fixed;
+        h1 {
+            font-size: 1rem;
+        }
+    }
+}
+
+@media (min-width: 860px) {
+    body {
+        flex-direction: row;
+        main {
+            display: flex;
+            flex-direction: row;
+
+            .cvform-container {
+                width: clamp(20rem, 45rem, 50rem);
+                height: 100;
+            }
+
+            .cvpreview-container {
+                width: clamp(20rem, 45rem, 50rem);
+                height: 80vh;
+                top: 4.5rem;
+
+                position: sticky;
+            }
+        }
+    }
+}
+
+// body:has(h1) {
+//     background-color: black;
+// }
