@@ -4,7 +4,7 @@ import { useState } from "react"
 import uniquid from "uniquid"
 import Education from "./Education"
 
-export default function CVForm() {
+export default function CVForm({ values, setValues }) {
     const [components, setComponents] = useState(() => [
         { comp: <Experience />, key: uniquid() },
         { comp: <Education />, key: uniquid() },
@@ -67,7 +67,7 @@ export default function CVForm() {
 
     return (
         <section className="cvform-container">
-            <Pinfo />
+            <Pinfo values={values} setValues={setValues} />
 
             <h2 className="sub-title">Experience</h2>
 

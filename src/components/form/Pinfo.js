@@ -1,13 +1,7 @@
 import { useState } from "react"
 import PName from "../preview/PName"
 
-export default function Pinfo() {
-    const [values, setValues] = useState({
-        title: "Mr",
-        firstName: "",
-        lastName: "",
-    })
-
+export default function Pinfo({ values, setValues }) {
     const removeDefaultValue = e => {
         e.target.value = ""
         console.log(values.title)
@@ -27,7 +21,7 @@ export default function Pinfo() {
                 onClick={removeDefaultValue}
                 onChange={handleInputChange}
             />
-            <PName title={values.title} />
+
             <input
                 type="text"
                 id="firstName"
