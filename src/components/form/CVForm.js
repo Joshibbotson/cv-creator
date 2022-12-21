@@ -7,39 +7,27 @@ import Education from "./Education"
 export default function CVForm({
     values,
     setValues,
-    currentExpValue,
-    expArr,
-    setExperienceValues,
+    components,
+    setComponents,
 }) {
-    const [components, setComponents] = useState(() => [
-        {
-            comp: (
-                <Experience
-                    currentExpValue={currentExpValue}
-                    expArr={expArr}
-                    setExperienceValues={setExperienceValues}
-                />
-            ),
-            key: uniquid(),
-        },
-        { comp: <Education />, key: uniquid() },
-    ])
-
-    const AddExperience = () => {
+    console.log(setComponents)
+    const AddExperience = ({ components, setComponents }) => {
+        console.log(setComponents)
         return (
             <button
                 onClick={() => {
+                    console.log(setComponents)
                     setComponents([
                         ...components,
                         {
                             comp: (
                                 <Experience
-                                    currentExpValue={currentExpValue}
-                                    expArr={expArr}
-                                    setExperienceValues={setExperienceValues}
+                                    component={components}
+                                    setComponents={setComponents}
                                 />
                             ),
                             key: uniquid(),
+                            position: "",
                         },
                     ])
                 }}
@@ -105,7 +93,10 @@ export default function CVForm({
                     </div>
                 ))}
 
-            <AddExperience />
+            <AddExperience
+                components={components}
+                setComponents={setComponents}
+            />
 
             <h2 className="sub-title">Education</h2>
             {components

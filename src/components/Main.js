@@ -2,8 +2,19 @@ import CVForm from "./form/CVForm"
 import CVPreview from "./preview/CVPreview"
 import { React, useState } from "react"
 import uniquid from "uniquid"
+import Experience from "./form/Experience"
+import Education from "./form/Education"
 
 export default function Main() {
+    const [components, setComponents] = useState(() => [
+        {
+            comp: <Experience />,
+            key: uniquid(),
+            position: "web dev",
+        },
+        { comp: <Education />, key: uniquid(), position: "baseball player" },
+    ])
+
     const [values, setValues] = useState({
         title: "",
         fullName: "",
@@ -13,25 +24,32 @@ export default function Main() {
         summary: "",
     })
 
-    const [experienceValues, setExperienceValues] = useState({
-        currentValue: {
-            position: "",
-            company: "",
-            from: "",
-            to: "",
-            key: uniquid(),
-        },
-        valueArr: [],
-    })
+    // const [experienceValues, setExperienceValues] = useState({
+    //     currentValue: {
+    //         position: "asdsa",
+    //         company: "asdas",
+    //         from: "asd",
+    //         to: "wewe",
+    //         key: uniquid(),
+    //     },
+    //     valueArr: [
+    //         {
+    //             position: "asdsa",
+    //             company: "asdas",
+    //             from: "asd",
+    //             to: "wewe",
+    //             key: uniquid(),
+    //         },
+    //     ],
+    // })
 
     return (
         <main>
             <CVForm
                 values={values}
                 setValues={setValues}
-                currentExpValue={experienceValues.currentValue}
-                expArr={experienceValues.valueArr}
-                setExperienceValues={setExperienceValues}
+                components={components}
+                setComponents={setComponents}
             />
             <CVPreview values={values} setValues={setValues} />
         </main>
