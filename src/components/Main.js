@@ -6,7 +6,7 @@ import Experience from "./form/Experience"
 import Education from "./form/Education"
 
 export default function Main() {
-    const [components, setComponents] = useState(() => [
+    const [components, setComponents] = useState([
         {
             comp: <Experience />,
             key: uniquid(),
@@ -23,25 +23,18 @@ export default function Main() {
         email: "",
         summary: "",
     })
-
-    // const [experienceValues, setExperienceValues] = useState({
-    //     currentValue: {
-    //         position: "asdsa",
-    //         company: "asdas",
-    //         from: "asd",
-    //         to: "wewe",
-    //         key: uniquid(),
-    //     },
-    //     valueArr: [
-    //         {
-    //             position: "asdsa",
-    //             company: "asdas",
-    //             from: "asd",
-    //             to: "wewe",
-    //             key: uniquid(),
-    //         },
-    //     ],
-    // })
+    const handleInputChange = e => {
+        console.log(e.target.id)
+        switch (e.target.id) {
+            case "position":
+                setValues({
+                    ...values,
+                    position: e.target.value,
+                })
+                break
+        }
+        console.log(values)
+    }
 
     return (
         <main>
@@ -50,6 +43,7 @@ export default function Main() {
                 setValues={setValues}
                 components={components}
                 setComponents={setComponents}
+                handleInputChange={handleInputChange}
             />
             <CVPreview values={values} setValues={setValues} />
         </main>

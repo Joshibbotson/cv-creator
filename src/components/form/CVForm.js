@@ -9,10 +9,9 @@ export default function CVForm({
     setValues,
     components,
     setComponents,
+    handleInputChange,
 }) {
-    console.log(setComponents)
-    const AddExperience = ({ components, setComponents }) => {
-        console.log(setComponents)
+    const AddExperience = () => {
         return (
             <button
                 onClick={() => {
@@ -20,12 +19,7 @@ export default function CVForm({
                     setComponents([
                         ...components,
                         {
-                            comp: (
-                                <Experience
-                                    component={components}
-                                    setComponents={setComponents}
-                                />
-                            ),
+                            comp: <Experience />,
                             key: uniquid(),
                             position: "",
                         },
@@ -79,10 +73,18 @@ export default function CVForm({
             <Pinfo values={values} setValues={setValues} />
 
             <h2 className="sub-title">Experience</h2>
-
+            {/* takes components state, filters to create array of Experience components, then renders that array to the DOM with a delete button */}
             {components
                 .filter(item => {
                     if (item.comp.type.name !== "Education") {
+                        item.comp = (
+                            <Experience
+                                components={components}
+                                setComponents={setComponents}
+                                targetKey={item.key}
+                                handleInputChange={handleInputChange}
+                            />
+                        )
                         return item
                     }
                 })
