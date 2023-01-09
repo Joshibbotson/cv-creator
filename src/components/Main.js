@@ -6,9 +6,14 @@ import Experience from "./form/Experience"
 import Education from "./form/Education"
 
 export default function Main() {
+    const [expValues, setExpValues] = useState({
+        position: "",
+    })
     const [components, setComponents] = useState([
         {
-            comp: <Experience />,
+            comp: (
+                <Experience expValues={expValues} setExpValues={setExpValues} />
+            ),
             key: uniquid(),
             position: "web dev",
         },
@@ -23,27 +28,16 @@ export default function Main() {
         email: "",
         summary: "",
     })
-    const handleInputChange = e => {
-        console.log(e.target.id)
-        switch (e.target.id) {
-            case "position":
-                setValues({
-                    ...values,
-                    position: e.target.value,
-                })
-                break
-        }
-        console.log(values)
-    }
 
     return (
         <main>
             <CVForm
                 values={values}
                 setValues={setValues}
+                expValues={expValues}
+                setExpValues={setExpValues}
                 components={components}
                 setComponents={setComponents}
-                handleInputChange={handleInputChange}
             />
             <CVPreview values={values} setValues={setValues} />
         </main>

@@ -1,14 +1,25 @@
-import { useState } from "react"
 import uniquid from "uniquid"
 
 export default function Experience({
     components,
     setComponents,
     targetKey,
-    handleInputChange,
+    values,
+    setValues,
+    expValues,
+    setExpValues,
 }) {
     const removeDefaultValue = e => {
         e.target.value = ""
+    }
+    //for some reason this handleinputchange does not update...
+    const handleInputChange = e => {
+        console.log(e.target.id)
+
+        setExpValues({
+            position: e.target.value,
+        })
+        console.log(expValues)
     }
 
     return (
@@ -16,8 +27,7 @@ export default function Experience({
             <input
                 type="text"
                 id="position"
-                // defaultValue="Position"
-                defaultValue={"Position"}
+                defaultValue="Position"
                 onClick={removeDefaultValue}
                 onChange={handleInputChange}
             />
@@ -26,21 +36,18 @@ export default function Experience({
                 id="company"
                 defaultValue="Company"
                 onClick={removeDefaultValue}
-                onChange={handleInputChange}
             />
             <input
                 type="text"
                 id="from"
                 defaultValue="from"
                 onClick={removeDefaultValue}
-                onChange={handleInputChange}
             />
             <input
                 type="text"
                 id="to"
                 defaultValue="To"
                 onClick={removeDefaultValue}
-                onChange={handleInputChange}
             />
         </div>
     )

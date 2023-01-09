@@ -1,15 +1,16 @@
 import Pinfo from "./Pinfo"
 import Experience from "./Experience"
-import { useState } from "react"
+
 import uniquid from "uniquid"
 import Education from "./Education"
 
 export default function CVForm({
     values,
     setValues,
+    expValues,
+    setExpValues,
     components,
     setComponents,
-    handleInputChange,
 }) {
     const AddExperience = () => {
         return (
@@ -19,7 +20,12 @@ export default function CVForm({
                     setComponents([
                         ...components,
                         {
-                            comp: <Experience />,
+                            comp: (
+                                <Experience
+                                    expValues={expValues}
+                                    setExpValues={setExpValues}
+                                />
+                            ),
                             key: uniquid(),
                             position: "",
                         },
@@ -56,9 +62,7 @@ export default function CVForm({
                 onClick={() => {
                     setComponents(
                         components.filter(item => {
-                            if (item.key !== targetComp.key) {
-                                return item
-                            }
+                            return item.key !== targetComp.key
                         })
                     )
                 }}
@@ -76,17 +80,7 @@ export default function CVForm({
             {/* takes components state, filters to create array of Experience components, then renders that array to the DOM with a delete button */}
             {components
                 .filter(item => {
-                    if (item.comp.type.name !== "Education") {
-                        item.comp = (
-                            <Experience
-                                components={components}
-                                setComponents={setComponents}
-                                targetKey={item.key}
-                                handleInputChange={handleInputChange}
-                            />
-                        )
-                        return item
-                    }
+                    return item.comp.type.name !== "Education"
                 })
                 .map(item => (
                     <div key={item.key} className="section-container">
@@ -98,14 +92,15 @@ export default function CVForm({
             <AddExperience
                 components={components}
                 setComponents={setComponents}
+                expValues={expValues}
+                setExpValues={setExpValues}
             />
+            {/* takes components state, filters to create array of Education components, then renders that array to the DOM with a delete button */}
 
             <h2 className="sub-title">Education</h2>
             {components
                 .filter(item => {
-                    if (item.comp.type.name !== "Experience") {
-                        return item
-                    }
+                    return item.comp.type.name !== "Experience"
                 })
                 .map(item => (
                     <div key={item.key} className="section-container">
