@@ -20,7 +20,6 @@ export default function Pinfo({ values, setValues }) {
                 setValues({ ...values, address: e.target.value })
                 break
             case "phoneNumber":
-                console.log("MOBILKE")
                 setValues({ ...values, phoneNumber: e.target.value })
                 break
             case "email":

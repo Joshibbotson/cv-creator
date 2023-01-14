@@ -6,18 +6,26 @@ import Experience from "./form/Experience"
 import Education from "./form/Education"
 
 export default function Main() {
+    //expValues does change or at least it should
+    // change if there aren't any bugs preventing it, but
+    // the change will never get reflected in your Experience
+    // component since the expValues passed to it as a prop will
+    //  always be its initial value.  You should only save the data
+    //  needed to create the component in state and never the
+    //  component itself, else you'll run into the problem of stale
+    //   state.
     const [expValues, setExpValues] = useState({
-        position: "",
+        position: "textinsertedhere",
     })
-    const [components, setComponents] = useState([
+
+    const [expSections, setExpSections] = useState([
         {
-            comp: (
-                <Experience expValues={expValues} setExpValues={setExpValues} />
-            ),
+            position: "",
+            company: "",
+            from: "",
+            to: "",
             key: uniquid(),
-            position: "web dev",
         },
-        { comp: <Education />, key: uniquid(), position: "baseball player" },
     ])
 
     const [values, setValues] = useState({
@@ -36,8 +44,8 @@ export default function Main() {
                 setValues={setValues}
                 expValues={expValues}
                 setExpValues={setExpValues}
-                components={components}
-                setComponents={setComponents}
+                expSections={expSections}
+                setExpSections={setExpSections}
             />
             <CVPreview values={values} setValues={setValues} />
         </main>

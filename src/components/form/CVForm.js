@@ -1,5 +1,6 @@
 import Pinfo from "./Pinfo"
 import Experience from "./Experience"
+import AddExperience from "./addExperience"
 
 import uniquid from "uniquid"
 import Education from "./Education"
@@ -9,106 +10,69 @@ export default function CVForm({
     setValues,
     expValues,
     setExpValues,
-    components,
-    setComponents,
+    expSections,
+    setExpSections,
 }) {
-    const AddExperience = () => {
-        return (
-            <button
-                onClick={() => {
-                    console.log(setComponents)
-                    setComponents([
-                        ...components,
-                        {
-                            comp: (
-                                <Experience
-                                    expValues={expValues}
-                                    setExpValues={setExpValues}
-                                />
-                            ),
-                            key: uniquid(),
-                            position: "",
-                        },
-                    ])
-                }}
-            >
-                Add
-            </button>
-        )
-    }
+    // const AddEducation = () => {
+    //     return (
+    //         <button
+    //             onClick={() => {
+    //                 setExpSections([
+    //                     ...expSections,
+    //                     {
+    //                         comp: <Education />,
+    //                         key: uniquid(),
+    //                     },
+    //                 ])
+    //             }}
+    //         >
+    //             Add
+    //         </button>
+    //     )
+    // }
 
-    const AddEducation = () => {
-        return (
-            <button
-                onClick={() => {
-                    setComponents([
-                        ...components,
-                        {
-                            comp: <Education />,
-                            key: uniquid(),
-                        },
-                    ])
-                }}
-            >
-                Add
-            </button>
-        )
-    }
-
-    const HandleDelete = ({ targetComp }) => {
-        return (
-            <button
-                className="deleteBtn"
-                onClick={() => {
-                    setComponents(
-                        components.filter(item => {
-                            return item.key !== targetComp.key
-                        })
-                    )
-                }}
-            >
-                Delete
-            </button>
-        )
-    }
+    // const HandleDelete = ({ targetComp }) => {
+    //     return (
+    //         <button
+    //             className="deleteBtn"
+    //             onClick={() => {
+    //                 setExpSections(
+    //                     expSections.filter(item => {
+    //                         return item.key !== targetComp.key
+    //                     })
+    //                 )
+    //             }}
+    //         >
+    //             Delete
+    //         </button>
+    //     )
+    // }
 
     return (
         <section className="cvform-container">
             <Pinfo values={values} setValues={setValues} />
-
             <h2 className="sub-title">Experience</h2>
-            {/* takes components state, filters to create array of Experience components, then renders that array to the DOM with a delete button */}
-            {components
-                .filter(item => {
-                    return item.comp.type.name !== "Education"
-                })
-                .map(item => (
-                    <div key={item.key} className="section-container">
-                        {item.comp}
-                        <HandleDelete targetComp={item} />
-                    </div>
-                ))}
-
+            {/* <Experience expValues={expValues} setExpValues={setExpValues} /> */}
+            {expSections.map(compData => {
+                return (
+                    <>
+                        <Experience
+                            key={compData.key}
+                            company={compData.company}
+                            from={compData.from}
+                            to={compData.to}
+                            expSections={expSections}
+                            setExpSections={setExpSections}
+                        />
+                    </>
+                )
+            })}
             <AddExperience
-                components={components}
-                setComponents={setComponents}
-                expValues={expValues}
-                setExpValues={setExpValues}
+                expSections={expSections}
+                setExpSections={setExpSections}
             />
-            {/* takes components state, filters to create array of Education components, then renders that array to the DOM with a delete button */}
 
             <h2 className="sub-title">Education</h2>
-            {components
-                .filter(item => {
-                    return item.comp.type.name !== "Experience"
-                })
-                .map(item => (
-                    <div key={item.key} className="section-container">
-                        {item.comp}
-                        <HandleDelete targetComp={item} />
-                    </div>
-                ))}
-            <AddEducation />
         </section>
     )
 }
