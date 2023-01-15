@@ -4,6 +4,7 @@ import { memo } from "react"
 export const Experience = memo(function Experience({
     compKey,
     handleInputChange,
+    position,
 }) {
     const removeDefaultValue = e => {
         e.target.value = ""
@@ -13,6 +14,7 @@ export const Experience = memo(function Experience({
             <input
                 type="text"
                 id="position"
+                defaultValue={position}
                 onClick={removeDefaultValue}
                 onChange={e => handleInputChange(e, compKey)}
             />
@@ -20,20 +22,23 @@ export const Experience = memo(function Experience({
             <input
                 type="text"
                 id="company"
-                defaultValue="Company"
+                defaultValue={"Company"}
                 onClick={removeDefaultValue}
+                onChange={e => handleInputChange(e, compKey)}
             />
             <input
                 type="text"
                 id="from"
                 defaultValue="from"
                 onClick={removeDefaultValue}
+                onChange={e => handleInputChange(e, compKey)}
             />
             <input
                 type="text"
                 id="to"
                 defaultValue="To"
                 onClick={removeDefaultValue}
+                onChange={e => handleInputChange(e, compKey)}
             />
         </div>
     )

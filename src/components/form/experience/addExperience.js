@@ -4,15 +4,24 @@ export default function AddExperience({ expSections, setExpSections }) {
     return (
         <button
             onClick={() => {
+                console.log("addexp", expSections)
                 expSections.length > 0
                     ? setExpSections([
                           ...expSections,
                           {
+                              position: "Position",
+                              company: "",
+                              from: "",
+                              to: "",
                               key: uniquid(),
                           },
                       ])
                     : setExpSections([
                           {
+                              position: "Position",
+                              company: "",
+                              from: "",
+                              to: "",
                               key: uniquid(),
                           },
                       ])

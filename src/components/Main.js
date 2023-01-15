@@ -9,10 +9,6 @@ import { useCallback } from "react"
 export default function Main() {
     const [expSections, setExpSections] = useState([
         {
-            // position: "",
-            // company: "",
-            // from: "",
-            // to: "",
             key: uniquid(),
         },
     ])
@@ -22,11 +18,35 @@ export default function Main() {
     const handleInputChange = useCallback(
         (newValue, key) => {
             const updatedExpSections = [...expSections]
-            updatedExpSections.forEach(exp => {
-                if (exp.key === key) {
-                    exp.position = newValue.target.value
-                }
-            })
+            switch (newValue.target.id) {
+                case "position":
+                    updatedExpSections.forEach(exp => {
+                        if (exp.key === key) {
+                            exp.position = newValue.target.value
+                        }
+                    })
+                    break
+                case "company":
+                    updatedExpSections.forEach(exp => {
+                        if (exp.key === key) {
+                            exp.company = newValue.target.value
+                        }
+                    })
+                    break
+                case "from":
+                    updatedExpSections.forEach(exp => {
+                        if (exp.key === key) {
+                            exp.from = newValue.target.value
+                        }
+                    })
+                    break
+                default:
+                    updatedExpSections.forEach(exp => {
+                        if (exp.key === key) {
+                            exp.to = newValue.target.value
+                        }
+                    })
+            }
             setExpValues(updatedExpSections)
         },
         [expSections]

@@ -22,7 +22,7 @@ export default function CVPreview({ values, expValues }) {
                 return (
                     <>
                         <PExperience
-                            posiiton={item.posiiton}
+                            position={item.position}
                             company={item.company}
                             from={item.from}
                             to={item.to}
