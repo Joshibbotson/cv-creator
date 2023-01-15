@@ -1,6 +1,3 @@
-import { useState } from "react"
-import PName from "../preview/PName"
-
 export default function Pinfo({ values, setValues }) {
     const removeDefaultValue = e => {
         e.target.value = ""
@@ -25,7 +22,7 @@ export default function Pinfo({ values, setValues }) {
             case "email":
                 setValues({ ...values, email: e.target.value })
                 break
-            case "summary":
+            default:
                 setValues({ ...values, summary: e.target.value })
                 break
         }

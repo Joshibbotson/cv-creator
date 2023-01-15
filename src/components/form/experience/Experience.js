@@ -1,29 +1,20 @@
 import uniquid from "uniquid"
-import { useState } from "react"
+import { memo } from "react"
 
-export default function Experience({
-    key,
-    company,
-    from,
-    to,
-    setExpSections,
-    expSections,
+export const Experience = memo(function Experience({
+    compKey,
+    handleInputChange,
 }) {
     const removeDefaultValue = e => {
         e.target.value = ""
     }
-    //for some reason this handleinput change does not update...
-    const handleInputChange = e => {
-        console.log(e.target.value)
-    }
-
     return (
         <div key={uniquid()} className="section-container">
             <input
                 type="text"
                 id="position"
                 onClick={removeDefaultValue}
-                onChange={handleInputChange}
+                onChange={e => handleInputChange(e, compKey)}
             />
 
             <input
@@ -46,4 +37,4 @@ export default function Experience({
             />
         </div>
     )
-}
+})

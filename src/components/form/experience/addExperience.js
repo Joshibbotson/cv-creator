@@ -8,19 +8,11 @@ export default function AddExperience({ expSections, setExpSections }) {
                     ? setExpSections([
                           ...expSections,
                           {
-                              position: "",
-                              company: "",
-                              from: "",
-                              to: "",
                               key: uniquid(),
                           },
                       ])
                     : setExpSections([
                           {
-                              position: "",
-                              company: "",
-                              from: "",
-                              to: "",
                               key: uniquid(),
                           },
                       ])

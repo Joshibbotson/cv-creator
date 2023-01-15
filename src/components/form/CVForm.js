@@ -1,9 +1,6 @@
 import Pinfo from "./Pinfo"
-import Experience from "./Experience"
-import AddExperience from "./addExperience"
-
-import uniquid from "uniquid"
-import Education from "./Education"
+import AddExperience from "./experience/addExperience"
+import { Experience } from "./experience/Experience"
 
 export default function CVForm({
     values,
@@ -12,57 +9,19 @@ export default function CVForm({
     setExpValues,
     expSections,
     setExpSections,
+    updateExpValues,
+    handleInputChange,
 }) {
-    // const AddEducation = () => {
-    //     return (
-    //         <button
-    //             onClick={() => {
-    //                 setExpSections([
-    //                     ...expSections,
-    //                     {
-    //                         comp: <Education />,
-    //                         key: uniquid(),
-    //                     },
-    //                 ])
-    //             }}
-    //         >
-    //             Add
-    //         </button>
-    //     )
-    // }
-
-    // const HandleDelete = ({ targetComp }) => {
-    //     return (
-    //         <button
-    //             className="deleteBtn"
-    //             onClick={() => {
-    //                 setExpSections(
-    //                     expSections.filter(item => {
-    //                         return item.key !== targetComp.key
-    //                     })
-    //                 )
-    //             }}
-    //         >
-    //             Delete
-    //         </button>
-    //     )
-    // }
-
     return (
         <section className="cvform-container">
             <Pinfo values={values} setValues={setValues} />
             <h2 className="sub-title">Experience</h2>
-            {/* <Experience expValues={expValues} setExpValues={setExpValues} /> */}
             {expSections.map(compData => {
                 return (
                     <>
                         <Experience
-                            key={compData.key}
-                            company={compData.company}
-                            from={compData.from}
-                            to={compData.to}
-                            expSections={expSections}
-                            setExpSections={setExpSections}
+                            compKey={compData.key}
+                            handleInputChange={handleInputChange}
                         />
                     </>
                 )
