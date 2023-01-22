@@ -5,7 +5,10 @@ export const Experience = memo(function Experience({
     compKey,
     handleInputChange,
     position,
+    expSections,
+    setExpSections,
 }) {
+    //Store default values to prevent resetting default input values when adding new Experience component to the DOM
     const defaultValues = useRef({
         defaultPosition: "Position",
         defaultCompany: "Company",
@@ -67,6 +70,19 @@ export const Experience = memo(function Experience({
                     )
                 }}
             />
+            {/* re-render Experience sections to filter out this section. */}
+            {/* need to call handleInputChange to updated values when deleted as currently they're only updated once input changes in an experience section */}
+            <button
+                onClick={e => {
+                    setExpSections(
+                        expSections.filter(item => {
+                            return item.key !== compKey
+                        })
+                    )
+                }}
+            >
+                Delete
+            </button>
         </div>
     )
 })

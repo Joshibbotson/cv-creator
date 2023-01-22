@@ -22,6 +22,8 @@ export default function CVForm({
                         key={compData.key}
                         compKey={compData.key}
                         handleInputChange={handleInputChange}
+                        expSections={expSections}
+                        setExpSections={setExpSections}
                     />
                 )
             })}

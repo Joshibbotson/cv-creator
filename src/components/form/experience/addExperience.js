@@ -4,7 +4,6 @@ export default function AddExperience({ expSections, setExpSections }) {
     return (
         <button
             onClick={() => {
-                console.log("addexp", expSections)
                 expSections.length > 0
                     ? setExpSections([
                           ...expSections,
@@ -31,6 +30,3 @@ export default function AddExperience({ expSections, setExpSections }) {
         </button>
     )
 }
-
-//ideally store the information with uniqueIDs
-//then map each one to be rendered!
