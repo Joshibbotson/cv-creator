@@ -18,12 +18,11 @@ export default function CVForm({
             <h2 className="sub-title">Experience</h2>
             {expSections.map(compData => {
                 return (
-                    <>
-                        <Experience
-                            compKey={compData.key}
-                            handleInputChange={handleInputChange}
-                        />
-                    </>
+                    <Experience
+                        key={compData.key}
+                        compKey={compData.key}
+                        handleInputChange={handleInputChange}
+                    />
                 )
             })}
             <AddExperience

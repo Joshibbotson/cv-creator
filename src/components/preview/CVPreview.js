@@ -20,14 +20,13 @@ export default function CVPreview({ values, expValues }) {
             <p>{expValues.position}</p>
             {expValues.map(item => {
                 return (
-                    <>
-                        <PExperience
-                            position={item.position}
-                            company={item.company}
-                            from={item.from}
-                            to={item.to}
-                        />
-                    </>
+                    <PExperience
+                        key={item.key}
+                        position={item.position}
+                        company={item.company}
+                        from={item.from}
+                        to={item.to}
+                    />
                 )
             })}
         </section>

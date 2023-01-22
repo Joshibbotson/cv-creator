@@ -1,11 +1,18 @@
 import uniquid from "uniquid"
-import { memo } from "react"
+import { memo, useRef } from "react"
 
 export const Experience = memo(function Experience({
     compKey,
     handleInputChange,
     position,
 }) {
+    const defaultValues = useRef({
+        defaultPosition: "Position",
+        defaultCompany: "Company",
+        defaultFrom: "From",
+        defaultTo: "To",
+    })
+
     const removeDefaultValue = e => {
         e.target.value = ""
     }
@@ -14,31 +21,51 @@ export const Experience = memo(function Experience({
             <input
                 type="text"
                 id="position"
-                defaultValue={position}
+                defaultValue={defaultValues.current.defaultPosition}
                 onClick={removeDefaultValue}
-                onChange={e => handleInputChange(e, compKey)}
+                onChange={e => {
+                    return (
+                        handleInputChange(e, compKey),
+                        (defaultValues.current.defaultPosition = e.target.value)
+                    )
+                }}
             />
 
             <input
                 type="text"
                 id="company"
-                defaultValue={"Company"}
+                defaultValue={defaultValues.current.defaultCompany}
                 onClick={removeDefaultValue}
-                onChange={e => handleInputChange(e, compKey)}
+                onChange={e => {
+                    return (
+                        handleInputChange(e, compKey),
+                        (defaultValues.current.defaultCompany = e.target.value)
+                    )
+                }}
             />
             <input
                 type="text"
                 id="from"
-                defaultValue="from"
+                defaultValue={defaultValues.current.defaultFrom}
                 onClick={removeDefaultValue}
-                onChange={e => handleInputChange(e, compKey)}
+                onChange={e => {
+                    return (
+                        handleInputChange(e, compKey),
+                        (defaultValues.current.defaultFrom = e.target.value)
+                    )
+                }}
             />
             <input
                 type="text"
                 id="to"
-                defaultValue="To"
+                defaultValue={defaultValues.current.defaultTo}
                 onClick={removeDefaultValue}
-                onChange={e => handleInputChange(e, compKey)}
+                onChange={e => {
+                    return (
+                        handleInputChange(e, compKey),
+                        (defaultValues.current.defaultTo = e.target.value)
+                    )
+                }}
             />
         </div>
     )

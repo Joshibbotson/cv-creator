@@ -9,7 +9,7 @@ export default function AddExperience({ expSections, setExpSections }) {
                     ? setExpSections([
                           ...expSections,
                           {
-                              position: "Position",
+                              position: "",
                               company: "",
                               from: "",
                               to: "",
@@ -18,7 +18,7 @@ export default function AddExperience({ expSections, setExpSections }) {
                       ])
                     : setExpSections([
                           {
-                              position: "Position",
+                              position: "",
                               company: "",
                               from: "",
                               to: "",
