@@ -40,6 +40,16 @@ export default function Main() {
                         }
                     })
                     break
+                case "deleteExperienceBtn":
+                    updatedExpSections.forEach(exp => {
+                        if (exp.key === key) {
+                            exp.position = newValue.target.value
+                            exp.company = newValue.target.value
+                            exp.from = newValue.target.value
+                            exp.to = newValue.target.value
+                        }
+                    })
+                    break
                 default:
                     updatedExpSections.forEach(exp => {
                         if (exp.key === key) {

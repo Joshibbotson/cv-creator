@@ -73,11 +73,14 @@ export const Experience = memo(function Experience({
             {/* re-render Experience sections to filter out this section. */}
             {/* need to call handleInputChange to updated values when deleted as currently they're only updated once input changes in an experience section */}
             <button
+                id="deleteExperienceBtn"
+                className="deleteBtn"
                 onClick={e => {
                     setExpSections(
                         expSections.filter(item => {
                             return item.key !== compKey
-                        })
+                        }),
+                        handleInputChange(e, compKey)
                     )
                 }}
             >
