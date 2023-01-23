@@ -1,15 +1,16 @@
 import Pinfo from "./Pinfo"
 import AddExperience from "./experience/addExperience"
+import AddEducation from "./education/addEducation"
 import { Experience } from "./experience/Experience"
+import { Education } from "./education/Education"
 
 export default function CVForm({
     values,
     setValues,
-    expValues,
-    setExpValues,
     expSections,
     setExpSections,
-    updateExpValues,
+    educationSections,
+    setEducationSections,
     handleInputChange,
 }) {
     return (
@@ -33,6 +34,21 @@ export default function CVForm({
             />
 
             <h2 className="sub-title">Education</h2>
+            {educationSections.map(compData => {
+                return (
+                    <Education
+                        key={compData.key}
+                        compKey={compData.key}
+                        handleInputChange={handleInputChange}
+                        educationSections={educationSections}
+                        setEducationSections={setEducationSections}
+                    />
+                )
+            })}
+            <AddEducation
+                educationSections={educationSections}
+                setEducationSections={setEducationSections}
+            />
         </section>
     )
 }

@@ -1,17 +1,16 @@
 import uniquid from "uniquid"
 import { memo, useRef } from "react"
 
-export const Experience = memo(function Experience({
+export const Education = memo(function Education({
     compKey,
     handleInputChange,
-    position,
-    expSections,
-    setExpSections,
+    educationSections,
+    setEducationSections,
 }) {
     //Store default values to prevent resetting default input values when adding new Experience component to the DOM
     const defaultValues = useRef({
-        defaultPosition: "Position",
-        defaultCompany: "Company",
+        defaultUniversityCollege: "University / College",
+        defaultQualification: "Qualification",
         defaultFrom: "From",
         defaultTo: "To",
     })
@@ -23,32 +22,34 @@ export const Experience = memo(function Experience({
         <div key={uniquid()} className="section-container">
             <input
                 type="text"
-                id="position"
-                defaultValue={defaultValues.current.defaultPosition}
+                id="universityCollege"
+                defaultValue={defaultValues.current.defaultUniversityCollege}
                 onClick={removeDefaultValue}
                 onChange={e => {
                     return (
                         handleInputChange(e, compKey),
-                        (defaultValues.current.defaultPosition = e.target.value)
+                        (defaultValues.current.defaultUniversityCollege =
+                            e.target.value)
                     )
                 }}
             />
 
             <input
                 type="text"
-                id="company"
-                defaultValue={defaultValues.current.defaultCompany}
+                id="qualification"
+                defaultValue={defaultValues.current.defaultQualification}
                 onClick={removeDefaultValue}
                 onChange={e => {
                     return (
                         handleInputChange(e, compKey),
-                        (defaultValues.current.defaultCompany = e.target.value)
+                        (defaultValues.current.defaultQualification =
+                            e.target.value)
                     )
                 }}
             />
             <input
                 type="text"
-                id="from"
+                id="edFrom"
                 defaultValue={defaultValues.current.defaultFrom}
                 onClick={removeDefaultValue}
                 onChange={e => {
@@ -60,7 +61,7 @@ export const Experience = memo(function Experience({
             />
             <input
                 type="text"
-                id="to"
+                id="edTo"
                 defaultValue={defaultValues.current.defaultTo}
                 onClick={removeDefaultValue}
                 onChange={e => {
@@ -73,11 +74,11 @@ export const Experience = memo(function Experience({
             {/* re-render Experience sections to filter out this section. */}
             {/* Call handleInputChange to update values when deleted*/}
             <button
-                id="deleteExperienceBtn"
+                id="deleteEducationBtn"
                 className="deleteBtn"
                 onClick={e => {
-                    setExpSections(
-                        expSections.filter(item => {
+                    setEducationSections(
+                        educationSections.filter(item => {
                             return item.key !== compKey
                         }),
                         handleInputChange(e, compKey)

@@ -12,12 +12,20 @@ export default function Main() {
             key: uniquid(),
         },
     ])
+    const [educationSections, setEducationSections] = useState([
+        {
+            key: uniquid(),
+        },
+    ])
 
     const [expValues, setExpValues] = useState([])
+
+    const [edValues, setEdValues] = useState([])
 
     const handleInputChange = useCallback(
         (newValue, key) => {
             const updatedExpSections = [...expSections]
+            const updatedEducationSections = [...educationSections]
             switch (newValue.target.id) {
                 case "position":
                     updatedExpSections.forEach(exp => {
@@ -50,6 +58,34 @@ export default function Main() {
                         }
                     })
                     break
+                case "universityCollege":
+                    updatedEducationSections.forEach(ed => {
+                        if (ed.key === key) {
+                            ed.universityCollege = newValue.target.value
+                        }
+                    })
+                    break
+                case "qualification":
+                    updatedEducationSections.forEach(ed => {
+                        if (ed.key === key) {
+                            ed.qualification = newValue.target.value
+                        }
+                    })
+                    break
+                case "edFrom":
+                    updatedEducationSections.forEach(ed => {
+                        if (ed.key === key) {
+                            ed.from = newValue.target.value
+                        }
+                    })
+                    break
+                case "edTo":
+                    updatedEducationSections.forEach(ed => {
+                        if (ed.key === key) {
+                            ed.to = newValue.target.value
+                        }
+                    })
+                    break
                 default:
                     updatedExpSections.forEach(exp => {
                         if (exp.key === key) {
@@ -58,8 +94,9 @@ export default function Main() {
                     })
             }
             setExpValues(updatedExpSections)
+            setEdValues(updatedEducationSections)
         },
-        [expSections]
+        [expSections, educationSections]
     )
 
     const [values, setValues] = useState({
@@ -78,12 +115,15 @@ export default function Main() {
                 setValues={setValues}
                 expSections={expSections}
                 setExpSections={setExpSections}
+                educationSections={educationSections}
+                setEducationSections={setEducationSections}
                 handleInputChange={handleInputChange}
             />
             <CVPreview
                 values={values}
                 setValues={setValues}
                 expValues={expValues}
+                edValues={edValues}
             />
         </main>
     )
