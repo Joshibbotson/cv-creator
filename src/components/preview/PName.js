@@ -8,11 +8,15 @@ export default function PName({
 }) {
     return (
         <>
-            <h2>{`${title} ${fullName}`}</h2>
+            <div className="name-preview">
+                <h2>{`${title} ${fullName}`}</h2>
+                <p>{summary}</p>
+            </div>
+            <div className="contact-details-preview"></div>
             <h4>{email}</h4>
             <h5>{address}</h5>
             <h5>{phoneNumber}</h5>
-            <p>{summary}</p>
+            <div className="summary-preview"></div>
         </>
     )
 }

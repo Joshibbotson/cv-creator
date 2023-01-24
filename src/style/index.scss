@@ -1,5 +1,7 @@
 $roboto-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+$nameBgColour: #e6e6e6;
+$nameBgColourShadeDarker: #acacac;
 
 * {
     margin: 0px;
@@ -93,10 +95,33 @@ body {
             box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.34);
             border-radius: 0.2rem;
             display: flex;
-            justify-content: center;
+            // justify-content: center;
             flex-direction: column;
-            padding: 1rem;
+            // padding: 1rem;
             margin: 1rem;
+            height: 80vh;
+
+            .cvpreview-title {
+                // height: 10vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .name-preview {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $nameBgColour;
+                    width: 100%;
+                    height: 100%;
+                    padding: 0.5rem;
+                    box-shadow: 2px 1px 0.15rem $nameBgColourShadeDarker;
+                }
+
+                .contact-details-preview {
+                }
+            }
         }
     }
     footer {
