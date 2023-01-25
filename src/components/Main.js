@@ -7,7 +7,7 @@ import { useReactToPrint } from "react-to-print"
 // import Experience from "./form/Experience"
 // import Education from "./form/Education"
 
-export default function Main() {
+export default function Main({ cvPreviewRef }) {
     const [expSections, setExpSections] = useState([
         {
             key: uniquid(),
@@ -109,12 +109,6 @@ export default function Main() {
         summary: "",
     })
 
-    const cvPreviewRef = useRef()
-
-    const handlePrint = useReactToPrint({
-        content: () => cvPreviewRef.current,
-    })
-
     return (
         <main>
             <CVForm
@@ -133,7 +127,6 @@ export default function Main() {
                 expValues={expValues}
                 edValues={edValues}
             />
-            <button onClick={handlePrint}>Print CV</button>
         </main>
     )
 }

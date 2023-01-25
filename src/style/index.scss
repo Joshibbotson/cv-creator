@@ -13,15 +13,47 @@ body {
     background-color: #e6e6e6;
     font-family: $roboto-font;
 
-    h1 {
-        background-color: white;
-        text-align: center;
-        padding: 1.2rem 0;
-        font-family: inherit;
-    }
-
     nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 1rem;
+        background-color: white;
+
+        h1 {
+            text-align: center;
+            padding: 1.2rem 0;
+            font-family: inherit;
+            margin-left: auto;
+            margin-right: -4rem;
+        }
+
+        .nav-btns {
+            margin-left: auto;
+            margin-right: 2rem;
+
+            .save-pdf-btn {
+                width: 4rem;
+                height: 5rem;
+                background-color: white;
+                background-image: url(../assets/save.png);
+                background-size: cover;
+                background-position: center;
+                border: none;
+
+                transition: all 250ms;
+            }
+
+            .save-pdf-btn:hover {
+                transform: scale(1.1);
+                background-image: url(../assets/saveGreen.png);
+                transition: all 250ms;
+            }
+
+            .save-pdf-btn:active {
+                transform: scale(0.8);
+            }
+        }
     }
 
     main {
@@ -122,6 +154,22 @@ body {
                 .contact-details-preview {
                 }
             }
+            .education-preview,
+            .experience-preview {
+                display: flex;
+                flex-direction: column;
+                padding: 1rem;
+
+                h2 {
+                    font-size: 1.2rem;
+                }
+                h4 {
+                    font-size: 1rem;
+                }
+                h5 {
+                    font-size: 0.8rem;
+                }
+            }
         }
     }
     footer {
@@ -130,12 +178,17 @@ body {
         margin-top: 5rem;
         height: 5.6vh;
         position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        background-color: white;
         h1 {
             font-size: 1rem;
         }
     }
 }
-
+// DESKTOP STYLING //
 @media (min-width: 860px) {
     body {
         flex-direction: row;
@@ -154,11 +207,74 @@ body {
                 top: 4.5rem;
 
                 position: sticky;
+
+                .education-preview,
+                .experience-preview {
+                    display: flex;
+                    flex-direction: column;
+                    padding-left: 3.5rem;
+
+                    h2 {
+                        font-size: 1.2rem;
+                    }
+                    h4 {
+                        font-size: 1rem;
+                    }
+                    h5 {
+                        font-size: 0.8rem;
+                    }
+                }
             }
         }
     }
 }
 
-// body:has(h1) {
-//     background-color: black;
-// }
+// PRINT STYLING//
+@media print {
+    .cvpreview-container {
+        background-color: #f6f4f4;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+
+        .cvpreview-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .name-preview {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: $nameBgColour;
+                width: 100%;
+                height: 100%;
+                padding: 0.5rem;
+                box-shadow: 2px 1px 0.15rem $nameBgColourShadeDarker;
+            }
+
+            .contact-details-preview {
+                background-color: red;
+            }
+        }
+        .education-preview,
+        .experience-preview {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+
+            padding-left: 3.5rem;
+
+            h2 {
+                font-size: 1.2rem;
+            }
+            h4 {
+                font-size: 1rem;
+            }
+            h5 {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
