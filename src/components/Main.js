@@ -1,7 +1,8 @@
 import CVForm from "./form/CVForm"
-import CVPreview from "./preview/CVPreview"
-import { React, useState, useCallback } from "react"
+import { CVPreview } from "./preview/CVPreview"
+import { React, useState, useCallback, useRef } from "react"
 import uniquid from "uniquid"
+import { useReactToPrint } from "react-to-print"
 
 // import Experience from "./form/Experience"
 // import Education from "./form/Education"
@@ -108,6 +109,12 @@ export default function Main() {
         summary: "",
     })
 
+    const cvPreviewRef = useRef()
+
+    const handlePrint = useReactToPrint({
+        content: () => cvPreviewRef.current,
+    })
+
     return (
         <main>
             <CVForm
@@ -120,11 +127,13 @@ export default function Main() {
                 handleInputChange={handleInputChange}
             />
             <CVPreview
+                ref={cvPreviewRef}
                 values={values}
                 setValues={setValues}
                 expValues={expValues}
                 edValues={edValues}
             />
+            <button onClick={handlePrint}>Print CV</button>
         </main>
     )
 }
