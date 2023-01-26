@@ -17,9 +17,6 @@ export const CVPreview = forwardRef(
                         summary={values.summary}
                     />
                 </div>
-                {/* <div className="cvpreview-main">
-                <Pdetails />
-            </div> */}
 
                 {expValues.map(item => {
                     return (

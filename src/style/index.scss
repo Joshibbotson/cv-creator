@@ -25,12 +25,12 @@ body {
             padding: 1.2rem 0;
             font-family: inherit;
             margin-left: auto;
-            margin-right: -4rem;
+            margin-right: -8%;
         }
 
         .nav-btns {
             margin-left: auto;
-            margin-right: 2rem;
+            margin-right: 5%;
 
             .save-pdf-btn {
                 width: 4rem;
@@ -40,7 +40,6 @@ body {
                 background-size: cover;
                 background-position: center;
                 border: none;
-
                 transition: all 250ms;
             }
 
@@ -150,9 +149,6 @@ body {
                     padding: 0.5rem;
                     box-shadow: 2px 1px 0.15rem $nameBgColourShadeDarker;
                 }
-
-                .contact-details-preview {
-                }
             }
             .education-preview,
             .experience-preview {
@@ -236,6 +232,8 @@ body {
         display: flex;
         flex-direction: column;
         height: 100vh;
+        margin: 0rem;
+        padding: 0rem;
 
         .cvpreview-title {
             display: flex;

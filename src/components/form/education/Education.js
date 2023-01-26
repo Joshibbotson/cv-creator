@@ -15,8 +15,13 @@ export const Education = memo(function Education({
         defaultTo: "To",
     })
 
+    const resetInputCheck = useRef([])
+
     const removeDefaultValue = e => {
-        e.target.value = ""
+        if (!resetInputCheck.current.includes(e.target.id)) {
+            e.target.value = ""
+            resetInputCheck.current = [...resetInputCheck.current, e.target.id]
+        }
     }
     return (
         <div key={uniquid()} className="section-container">

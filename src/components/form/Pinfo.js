@@ -1,11 +1,15 @@
+import { useRef } from "react"
 export default function Pinfo({ values, setValues }) {
+    const resetInputCheck = useRef([])
+
     const removeDefaultValue = e => {
-        e.target.value = ""
-        console.log(values.title)
+        if (!resetInputCheck.current.includes(e.target.id)) {
+            e.target.value = ""
+            resetInputCheck.current = [...resetInputCheck.current, e.target.id]
+        }
     }
 
     const handleInputChange = e => {
-        console.log(e.target.id)
         switch (e.target.id) {
             case "title":
                 setValues({ ...values, title: e.target.value })
