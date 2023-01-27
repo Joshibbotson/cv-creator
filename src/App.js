@@ -10,7 +10,7 @@ function App() {
     const defaultInfoValues = useRef({
         title: "Title",
         fullName: "Full Name",
-        address: "Addres",
+        address: "Address",
         phoneNumber: "Phone Number",
         email: "Email",
         summary: "Summary",
@@ -131,6 +131,100 @@ function App() {
         setEducationSections([{ key: uniquid() }])
     }
 
+    const loadExampleCv = () => {
+        setValues({
+            title: "Miss",
+            fullName: "Kyoko Watanabe",
+            address: "Sengoku Japan",
+            phoneNumber: "07432026523",
+            email: "kyokoWatanabe@gmail.com",
+            summary:
+                "Junior Web Developer, specialised in React, Typescript and intuitive UI experiences.",
+        })
+
+        setExpValues([
+            {
+                position: "Senior React Developer",
+                company: "Google",
+                from: "2016",
+                to: "Present",
+                key: uniquid(),
+            },
+            {
+                position: "React Developer",
+                company: "Honda",
+                from: "2013",
+                to: "2016",
+                key: uniquid(),
+            },
+            {
+                position: "Junior Web Developer",
+                company: "Toyota",
+                from: "2010",
+                to: "2013",
+                key: uniquid(),
+            },
+        ])
+        setExpSections([
+            {
+                key: uniquid(),
+            },
+            {
+                key: uniquid(),
+            },
+            {
+                key: uniquid(),
+            },
+        ])
+
+        setEdValues([
+            {
+                universityCollege: "University of Leeds",
+                qualifcation: "MSc Computer Science ",
+                from: "2008",
+                to: "2010",
+                key: uniquid(),
+            },
+            {
+                universityCollege: "University of Lincoln",
+                qualifcation: "BSc Computer Science",
+                from: "2005",
+                to: "2008",
+                key: uniquid(),
+            },
+            {
+                universityCollege: "Grimsby Institute",
+                qualifcation: "Level 3 diploma IT",
+                from: "2003",
+                to: "2005",
+                key: uniquid(),
+            },
+        ])
+        setEducationSections([
+            {
+                universityCollege: "University of Leeds",
+                qualifcation: "MSc Computer Science ",
+                from: "2008",
+                to: "2010",
+                key: uniquid(),
+            },
+            {
+                universityCollege: "University of Lincoln",
+                qualifcation: "BSc Computer Science",
+                from: "2005",
+                to: "2008",
+                key: uniquid(),
+            },
+            {
+                universityCollege: "Grimsby Institute",
+                qualifcation: "Level 3 diploma IT",
+                from: "2003",
+                to: "2005",
+                key: uniquid(),
+            },
+        ])
+    }
+
     const cvPreviewRef = useRef()
 
     const handlePrint = useReactToPrint({
@@ -142,6 +236,7 @@ function App() {
                 cvPreviewRef={cvPreviewRef}
                 handlePrint={handlePrint}
                 resetValues={resetValues}
+                loadExampleCv={loadExampleCv}
             />
             <Main
                 cvPreviewRef={cvPreviewRef}
