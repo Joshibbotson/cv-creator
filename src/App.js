@@ -1,6 +1,6 @@
 import Nav from "./components/Nav"
 import Main from "./components/Main"
-import { React, useRef, useState, useCallback, useEffect } from "react"
+import { React, useRef, useState, useCallback } from "react"
 import Footer from "./components/Footer"
 import { useReactToPrint } from "react-to-print"
 
@@ -115,7 +115,7 @@ function App() {
         summary: "",
     })
 
-    const resetValues = (useEffect = () => {
+    const resetValues = () => {
         setValues({
             title: "",
             fullName: "",
@@ -129,7 +129,7 @@ function App() {
         setExpSections([{ key: uniquid() }])
         setEdValues([])
         setEducationSections([{ key: uniquid() }])
-    })
+    }
 
     const cvPreviewRef = useRef()
 
