@@ -1,7 +1,6 @@
 import CVForm from "./form/CVForm"
 import { CVPreview } from "./preview/CVPreview"
-import { React, useState, useCallback } from "react"
-import uniquid from "uniquid"
+import { React } from "react"
 
 // import Experience from "./form/Experience"
 // import Education from "./form/Education"

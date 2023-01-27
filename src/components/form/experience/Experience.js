@@ -4,7 +4,6 @@ import { memo, useRef } from "react"
 export const Experience = memo(function Experience({
     compKey,
     handleInputChange,
-    position,
     expSections,
     setExpSections,
 }) {
