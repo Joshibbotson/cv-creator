@@ -1,5 +1,5 @@
 import { useRef } from "react"
-export default function Pinfo({ values, setValues }) {
+export default function Pinfo({ values, setValues, defaultInfoValues }) {
     const resetInputCheck = useRef([])
 
     const removeDefaultValue = e => {
@@ -38,7 +38,7 @@ export default function Pinfo({ values, setValues }) {
             <input
                 type="text"
                 id="title"
-                defaultValue="Title"
+                defaultValue={defaultInfoValues.current.title}
                 onClick={removeDefaultValue}
                 onChange={handleInputChange}
             />
@@ -46,35 +46,35 @@ export default function Pinfo({ values, setValues }) {
             <input
                 type="text"
                 id="fullName"
-                defaultValue="Full Name"
+                defaultValue={defaultInfoValues.current.fullName}
                 onClick={removeDefaultValue}
                 onChange={handleInputChange}
             />
             <input
                 type="text"
                 id="address"
-                defaultValue="Address"
+                defaultValue={defaultInfoValues.current.address}
                 onClick={removeDefaultValue}
                 onChange={handleInputChange}
             />
             <input
                 type="text"
                 id="phoneNumber"
-                defaultValue="Phone number"
+                defaultValue={defaultInfoValues.current.phoneNumber}
                 onClick={removeDefaultValue}
                 onChange={handleInputChange}
             />
             <input
                 type="text"
                 id="email"
-                defaultValue="Email"
+                defaultValue={defaultInfoValues.current.email}
                 onClick={removeDefaultValue}
                 onChange={handleInputChange}
             />
             <textarea
                 type="textArea"
                 id="summary"
-                defaultValue="Summary"
+                defaultValue={defaultInfoValues.current.summary}
                 onClick={removeDefaultValue}
                 onChange={handleInputChange}
             />

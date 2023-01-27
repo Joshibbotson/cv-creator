@@ -12,10 +12,15 @@ export default function CVForm({
     educationSections,
     setEducationSections,
     handleInputChange,
+    defaultInfoValues,
 }) {
     return (
         <section className="cvform-container">
-            <Pinfo values={values} setValues={setValues} />
+            <Pinfo
+                values={values}
+                setValues={setValues}
+                defaultInfoValues={defaultInfoValues}
+            />
             <h2 className="sub-title">Experience</h2>
             {expSections.map(compData => {
                 return (

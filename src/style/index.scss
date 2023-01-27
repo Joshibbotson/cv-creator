@@ -24,18 +24,22 @@ body {
             text-align: center;
             padding: 1.2rem 0;
             font-family: inherit;
-            margin-left: auto;
-            margin-right: -8%;
+            margin-left: 1rem;
         }
 
         .nav-btns {
             margin-left: auto;
             margin-right: 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0rem;
 
             .save-pdf-btn {
-                width: 4rem;
+                margin-bottom: -0.5rem;
+                width: 3rem;
                 height: 5rem;
-                background-color: white;
+                background: none;
                 background-image: url(../assets/save.png);
                 background-size: cover;
                 background-position: center;
@@ -44,13 +48,66 @@ body {
             }
 
             .save-pdf-btn:hover {
-                transform: scale(1.1);
+                transform: scale(1.2);
                 background-image: url(../assets/saveGreen.png);
                 transition: all 250ms;
             }
 
             .save-pdf-btn:active {
                 transform: scale(0.8);
+            }
+
+            .load-example {
+                width: 4rem;
+                height: 4rem;
+                background: none;
+                background-image: url(../assets/example.png);
+                background-size: cover;
+                background-position: center;
+                border: none;
+                transition: all 250ms;
+            }
+            .load-example:hover {
+                margin-top: -1rem;
+                width: 4rem;
+                height: 4rem;
+                background-color: white;
+                background-image: url(../assets/example.png);
+                background-size: cover;
+                background-position: center;
+                border: none;
+                transition: all 250ms;
+            }
+
+            .load-example:active {
+                margin-top: 0rem;
+            }
+
+            .reset-btn {
+                width: 3rem;
+                height: 3rem;
+                background: none;
+                background-image: url(../assets/reset.png);
+                background-size: cover;
+                background-position: center;
+                border: none;
+                transition: all 250ms;
+            }
+
+            .reset-btn:hover {
+                transform: rotate(90deg);
+                width: 3rem;
+                height: 3rem;
+                // background-color: black;
+                border-radius: 50%;
+                background-size: cover;
+                background-position: center;
+                border: none;
+                // transition: all 250ms;
+            }
+
+            .reset-btn:active {
+                transform: rotate(360deg);
             }
         }
     }
@@ -188,6 +245,105 @@ body {
 @media (min-width: 860px) {
     body {
         flex-direction: row;
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            background-color: white;
+
+            h1 {
+                text-align: center;
+                padding: 1.2rem 0;
+                font-family: inherit;
+                position: absolute;
+            }
+
+            .nav-btns {
+                margin-left: auto;
+                margin-right: 5%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0.5rem;
+
+                .save-pdf-btn {
+                    margin-bottom: -0.5rem;
+                    width: 3rem;
+                    height: 5rem;
+                    background: none;
+                    background-image: url(../assets/save.png);
+                    background-size: cover;
+                    background-position: center;
+                    border: none;
+                    transition: all 250ms;
+                }
+
+                .save-pdf-btn:hover {
+                    transform: scale(1.2);
+                    background-image: url(../assets/saveGreen.png);
+                    transition: all 250ms;
+                }
+
+                .save-pdf-btn:active {
+                    transform: scale(0.8);
+                }
+
+                .load-example {
+                    width: 4.5rem;
+                    height: 4.5rem;
+                    background: none;
+                    background-image: url(../assets/example.png);
+                    background-size: cover;
+                    background-position: center;
+                    border: none;
+                    transition: all 250ms;
+                }
+                .load-example:hover {
+                    margin-top: -1rem;
+                    width: 4.5rem;
+                    height: 4.5rem;
+                    background-color: white;
+                    background-image: url(../assets/example.png);
+                    background-size: cover;
+                    background-position: center;
+                    border: none;
+                    transition: all 250ms;
+                }
+
+                .load-example:active {
+                    margin-top: 0rem;
+                }
+
+                .reset-btn {
+                    width: 3rem;
+                    height: 3rem;
+                    background: none;
+                    background-image: url(../assets/reset.png);
+                    background-size: cover;
+                    background-position: center;
+                    border: none;
+                    transition: all 250ms;
+                }
+
+                .reset-btn:hover {
+                    transform: rotate(90deg);
+                    width: 3rem;
+                    height: 3rem;
+                    // background-color: black;
+                    border-radius: 50%;
+                    background-size: cover;
+                    background-position: center;
+                    border: none;
+                    // transition: all 250ms;
+                }
+
+                .reset-btn:active {
+                    transform: rotate(360deg);
+                }
+            }
+        }
         main {
             display: flex;
             flex-direction: row;
