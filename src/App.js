@@ -1,6 +1,6 @@
 import Nav from "./components/Nav"
 import Main from "./components/Main"
-import { React, useRef, useState, useCallback } from "react"
+import { React, useRef, useState, useCallback, useEffect } from "react"
 import Footer from "./components/Footer"
 import { useReactToPrint } from "react-to-print"
 
@@ -130,11 +130,20 @@ function App() {
         setEdValues([])
         setEducationSections([{ key: uniquid() }])
     }
-
+    //Import in as a module?
     const loadExampleCv = () => {
+        defaultInfoValues.current = {
+            title: "sdf",
+            fullName: "sdf sdfd",
+            address: "Address",
+            phoneNumber: "Phone Number",
+            email: "Email",
+            summary: "Summary",
+        }
+
         setValues({
             title: "Miss",
-            fullName: "Kyoko Watanabe",
+            fullName: "Saki Watanabe",
             address: "Sengoku Japan",
             phoneNumber: "07432026523",
             email: "kyokoWatanabe@gmail.com",
@@ -167,12 +176,24 @@ function App() {
         ])
         setExpSections([
             {
+                position: "Senior React Developer",
+                company: "Google",
+                from: "2016",
+                to: "Present",
                 key: uniquid(),
             },
             {
+                position: "React Developer",
+                company: "Honda",
+                from: "2013",
+                to: "2016",
                 key: uniquid(),
             },
             {
+                position: "Junior Web Developer",
+                company: "Toyota",
+                from: "2010",
+                to: "2013",
                 key: uniquid(),
             },
         ])
