@@ -1,7 +1,8 @@
 $roboto-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-$nameBgColour: #e6e6e6;
-$nameBgColourShadeDarker: #acacac;
+$nameBgColour: #549325;
+$nameBgColourShadeDarker: #549325;
+$titleColour: #549325;
 
 * {
     margin: 0px;
@@ -98,12 +99,10 @@ body {
                 transform: rotate(90deg);
                 width: 3rem;
                 height: 3rem;
-                // background-color: black;
                 border-radius: 50%;
                 background-size: cover;
                 background-position: center;
                 border: none;
-                // transition: all 250ms;
             }
 
             .reset-btn:active {
@@ -187,8 +186,7 @@ body {
             flex-direction: column;
 
             margin: 1rem;
-            height: clamp(80vh, 100vh, 100vh);
-            flex-grow: 3;
+            min-height: 100vh;
 
             .cvpreview-title {
                 display: flex;
@@ -204,23 +202,38 @@ body {
                     width: 100%;
                     height: 100%;
                     padding: 0.5rem;
-                    box-shadow: 2px 1px 0.15rem $nameBgColourShadeDarker;
+
+                    h2 {
+                        color: white;
+                        padding: 0.5rem;
+                    }
+                    p {
+                        color: white;
+                    }
                 }
             }
-            .education-preview,
-            .experience-preview {
-                display: flex;
-                flex-direction: column;
-                padding: 1rem;
+            .cvpreview-main {
+                padding-left: 1rem;
+                padding-right: 1rem;
 
-                h2 {
-                    font-size: 1.2rem;
+                h1 {
+                    color: $titleColour;
                 }
-                h4 {
-                    font-size: 1rem;
-                }
-                h5 {
-                    font-size: 0.8rem;
+                .education-preview,
+                .experience-preview {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1rem;
+
+                    h2 {
+                        font-size: 1.2rem;
+                    }
+                    h4 {
+                        font-size: 1rem;
+                    }
+                    h5 {
+                        font-size: 0.8rem;
+                    }
                 }
             }
         }
@@ -331,12 +344,11 @@ body {
                     transform: rotate(90deg);
                     width: 3rem;
                     height: 3rem;
-                    // background-color: black;
+
                     border-radius: 50%;
                     background-size: cover;
                     background-position: center;
                     border: none;
-                    // transition: all 250ms;
                 }
 
                 .reset-btn:active {
@@ -350,30 +362,34 @@ body {
 
             .cvform-container {
                 width: clamp(20rem, 45rem, 50rem);
-                height: 100;
+                height: 100%;
             }
 
             .cvpreview-container {
                 width: clamp(20rem, 45rem, 50rem);
-                height: 80vh;
+                height: 100%;
                 top: 4.5rem;
 
                 position: sticky;
+                .cvpreview-main {
+                    padding-left: 1rem;
+                    padding-right: 1rem;
 
-                .education-preview,
-                .experience-preview {
-                    display: flex;
-                    flex-direction: column;
-                    padding-left: 3.5rem;
+                    .education-preview,
+                    .experience-preview {
+                        display: flex;
+                        flex-direction: column;
+                        padding-left: 3.5rem;
 
-                    h2 {
-                        font-size: 1.2rem;
-                    }
-                    h4 {
-                        font-size: 1rem;
-                    }
-                    h5 {
-                        font-size: 0.8rem;
+                        h2 {
+                            font-size: 1.2rem;
+                        }
+                        h4 {
+                            font-size: 1rem;
+                        }
+                        h5 {
+                            font-size: 0.8rem;
+                        }
                     }
                 }
             }
@@ -412,22 +428,26 @@ body {
                 background-color: red;
             }
         }
-        .education-preview,
-        .experience-preview {
-            display: flex;
-            flex-direction: column;
-            padding: 1rem;
+        .cvpreview-main {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            .education-preview,
+            .experience-preview {
+                display: flex;
+                flex-direction: column;
+                padding: 1rem;
 
-            padding-left: 3.5rem;
+                padding-left: 3.5rem;
 
-            h2 {
-                font-size: 1.2rem;
-            }
-            h4 {
-                font-size: 1rem;
-            }
-            h5 {
-                font-size: 0.8rem;
+                h2 {
+                    font-size: 1.2rem;
+                }
+                h4 {
+                    font-size: 1rem;
+                }
+                h5 {
+                    font-size: 0.8rem;
+                }
             }
         }
     }

@@ -2,13 +2,10 @@ import CVForm from "./form/CVForm"
 import { CVPreview } from "./preview/CVPreview"
 import { React } from "react"
 
-// import Experience from "./form/Experience"
-// import Education from "./form/Education"
-
 export default function Main({
     cvPreviewRef,
-    values,
-    setValues,
+    pInfoValues,
+    setPinfoValues,
     expSections,
     setExpSections,
     educationSections,
@@ -21,8 +18,8 @@ export default function Main({
     return (
         <main>
             <CVForm
-                values={values}
-                setValues={setValues}
+                pInfoValues={pInfoValues}
+                setPinfoValues={setPinfoValues}
                 expSections={expSections}
                 setExpSections={setExpSections}
                 educationSections={educationSections}
@@ -32,8 +29,8 @@ export default function Main({
             />
             <CVPreview
                 ref={cvPreviewRef}
-                values={values}
-                setValues={setValues}
+                pInfoValues={pInfoValues}
+                setPinfoValues={setPinfoValues}
                 expValues={expValues}
                 edValues={edValues}
             />

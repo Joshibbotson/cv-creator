@@ -1,12 +1,12 @@
-import Pinfo from "./Pinfo"
+import Pinfo from "./personalInfo/Pinfo"
 import AddExperience from "./experience/addExperience"
 import AddEducation from "./education/addEducation"
 import { Experience } from "./experience/Experience"
 import { Education } from "./education/Education"
 
 export default function CVForm({
-    values,
-    setValues,
+    pInfoValues,
+    setPinfoValues,
     expSections,
     setExpSections,
     educationSections,
@@ -17,8 +17,8 @@ export default function CVForm({
     return (
         <section className="cvform-container">
             <Pinfo
-                values={values}
-                setValues={setValues}
+                pInfoValues={pInfoValues}
+                setPinfoValues={setPinfoValues}
                 defaultInfoValues={defaultInfoValues}
             />
             <h2 className="sub-title">Experience</h2>

@@ -9,7 +9,7 @@ export default function PName({
     return (
         <>
             <div className="name-preview">
-                <h2>{`${title} ${fullName}`}</h2>
+                <h2>{fullName}</h2>
                 <p>{summary}</p>
             </div>
             <div className="contact-details-preview"></div>

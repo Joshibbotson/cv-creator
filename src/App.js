@@ -7,13 +7,12 @@ import { useReactToPrint } from "react-to-print"
 import uniquid from "uniquid"
 
 function App() {
-    const defaultInfoValues = useRef({
-        title: "Title",
-        fullName: "Full Name",
-        address: "Address",
-        phoneNumber: "Phone Number",
-        email: "Email",
-        summary: "Summary",
+    const [pInfoValues, setPinfoValues] = useState({
+        fullName: "",
+        address: "",
+        phoneNumber: "",
+        email: "",
+        summary: "",
     })
 
     const [expSections, setExpSections] = useState([
@@ -21,12 +20,13 @@ function App() {
             key: uniquid(),
         },
     ])
+    const [expValues, setExpValues] = useState([])
     const [educationSections, setEducationSections] = useState([
         {
             key: uniquid(),
         },
     ])
-    const [expValues, setExpValues] = useState([])
+
     const [edValues, setEdValues] = useState([])
 
     const handleInputChange = useCallback(
@@ -106,18 +106,8 @@ function App() {
         [expSections, educationSections]
     )
 
-    const [values, setValues] = useState({
-        title: "",
-        fullName: "",
-        address: "",
-        phoneNumber: "",
-        email: "",
-        summary: "",
-    })
-
     const resetValues = () => {
-        setValues({
-            title: "",
+        setPinfoValues({
             fullName: "",
             address: "",
             phoneNumber: "",
@@ -130,124 +120,113 @@ function App() {
         setEdValues([])
         setEducationSections([{ key: uniquid() }])
     }
-    //Import in as a module?
+
     const loadExampleCv = () => {
-        defaultInfoValues.current = {
-            title: "sdf",
-            fullName: "sdf sdfd",
-            address: "Address",
-            phoneNumber: "Phone Number",
-            email: "Email",
-            summary: "Summary",
-        }
-
-        setValues({
-            title: "Miss",
-            fullName: "Saki Watanabe",
-            address: "Sengoku Japan",
-            phoneNumber: "07432026523",
-            email: "kyokoWatanabe@gmail.com",
-            summary:
-                "Junior Web Developer, specialised in React, Typescript and intuitive UI experiences.",
-        })
-
-        setExpValues([
-            {
-                position: "Senior React Developer",
-                company: "Google",
-                from: "2016",
-                to: "Present",
-                key: uniquid(),
-            },
-            {
-                position: "React Developer",
-                company: "Honda",
-                from: "2013",
-                to: "2016",
-                key: uniquid(),
-            },
-            {
-                position: "Junior Web Developer",
-                company: "Toyota",
-                from: "2010",
-                to: "2013",
-                key: uniquid(),
-            },
-        ])
-        setExpSections([
-            {
-                position: "Senior React Developer",
-                company: "Google",
-                from: "2016",
-                to: "Present",
-                key: uniquid(),
-            },
-            {
-                position: "React Developer",
-                company: "Honda",
-                from: "2013",
-                to: "2016",
-                key: uniquid(),
-            },
-            {
-                position: "Junior Web Developer",
-                company: "Toyota",
-                from: "2010",
-                to: "2013",
-                key: uniquid(),
-            },
-        ])
-
-        setEdValues([
-            {
-                universityCollege: "University of Leeds",
-                qualifcation: "MSc Computer Science ",
-                from: "2008",
-                to: "2010",
-                key: uniquid(),
-            },
-            {
-                universityCollege: "University of Lincoln",
-                qualifcation: "BSc Computer Science",
-                from: "2005",
-                to: "2008",
-                key: uniquid(),
-            },
-            {
-                universityCollege: "Grimsby Institute",
-                qualifcation: "Level 3 diploma IT",
-                from: "2003",
-                to: "2005",
-                key: uniquid(),
-            },
-        ])
-        setEducationSections([
-            {
-                universityCollege: "University of Leeds",
-                qualifcation: "MSc Computer Science ",
-                from: "2008",
-                to: "2010",
-                key: uniquid(),
-            },
-            {
-                universityCollege: "University of Lincoln",
-                qualifcation: "BSc Computer Science",
-                from: "2005",
-                to: "2008",
-                key: uniquid(),
-            },
-            {
-                universityCollege: "Grimsby Institute",
-                qualifcation: "Level 3 diploma IT",
-                from: "2003",
-                to: "2005",
-                key: uniquid(),
-            },
-        ])
+        return (
+            setPinfoValues({
+                fullName: "Jane Doe",
+                address: "ABC street",
+                phoneNumber: "07432021234",
+                email: "example1@gmail.com",
+                summary:
+                    "Senior Web Developer, specialised in React, Typescript and intuitive UI experiences.",
+            }),
+            setExpValues([
+                {
+                    position: "Senior React Developer",
+                    company: "Google",
+                    from: "2016",
+                    to: "Present",
+                    key: uniquid(),
+                },
+                {
+                    position: "React Developer",
+                    company: "Honda",
+                    from: "2013",
+                    to: "2016",
+                    key: uniquid(),
+                },
+                {
+                    position: "Junior Web Developer",
+                    company: "Toyota",
+                    from: "2010",
+                    to: "2013",
+                    key: uniquid(),
+                },
+            ]),
+            setExpSections([
+                {
+                    position: "Senior React Developer",
+                    company: "Google",
+                    from: "2016",
+                    to: "Present",
+                    key: uniquid(),
+                },
+                {
+                    position: "React Developer",
+                    company: "Honda",
+                    from: "2013",
+                    to: "2016",
+                    key: uniquid(),
+                },
+                {
+                    position: "Junior Web Developer",
+                    company: "Toyota",
+                    from: "2010",
+                    to: "2013",
+                    key: uniquid(),
+                },
+            ]),
+            setEdValues([
+                {
+                    universityCollege: "University of Leeds",
+                    qualifcation: "MSc Computer Science ",
+                    from: "2008",
+                    to: "2010",
+                    key: uniquid(),
+                },
+                {
+                    universityCollege: "University of Lincoln",
+                    qualifcation: "BSc Computer Science",
+                    from: "2005",
+                    to: "2008",
+                    key: uniquid(),
+                },
+                {
+                    universityCollege: "Grimsby Institute",
+                    qualifcation: "Level 3 diploma IT",
+                    from: "2003",
+                    to: "2005",
+                    key: uniquid(),
+                },
+            ]),
+            setEducationSections([
+                {
+                    universityCollege: "University of Leeds",
+                    qualifcation: "MSc Computer Science ",
+                    from: "2008",
+                    to: "2010",
+                    key: uniquid(),
+                },
+                {
+                    universityCollege: "University of Lincoln",
+                    qualifcation: "BSc Computer Science",
+                    from: "2005",
+                    to: "2008",
+                    key: uniquid(),
+                },
+                {
+                    universityCollege: "Grimsby Institute",
+                    qualifcation: "Level 3 diploma IT",
+                    from: "2003",
+                    to: "2005",
+                    key: uniquid(),
+                },
+            ])
+        )
     }
 
     const cvPreviewRef = useRef()
-
     const handlePrint = useReactToPrint({
         content: () => cvPreviewRef.current,
     })
@@ -261,8 +240,8 @@ function App() {
             />
             <Main
                 cvPreviewRef={cvPreviewRef}
-                values={values}
-                setValues={setValues}
+                pInfoValues={pInfoValues}
+                setPinfoValues={setPinfoValues}
                 expSections={expSections}
                 setExpSections={setExpSections}
                 educationSections={educationSections}
@@ -270,7 +249,6 @@ function App() {
                 handleInputChange={handleInputChange}
                 expValues={expValues}
                 edValues={edValues}
-                defaultInfoValues={defaultInfoValues}
             />
             <Footer />
         </>
