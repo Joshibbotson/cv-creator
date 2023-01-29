@@ -93,10 +93,21 @@ function App() {
                         }
                     })
                     break
-                default:
+
+                case "to":
                     updatedExpSections.forEach(exp => {
                         if (exp.key === key) {
                             exp.to = newValue.target.value
+                        }
+                    })
+                    break
+                default:
+                    updatedEducationSections.forEach(ed => {
+                        if (ed.key === key) {
+                            ed.universityCollege = newValue.target.value
+                            ed.qualification = newValue.target.value
+                            ed.from = newValue.target.value
+                            ed.to = newValue.target.value
                         }
                     })
             }
