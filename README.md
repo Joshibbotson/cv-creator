@@ -1,9 +1,10 @@
+Live demo: https://cvcreator-ji.netlify.app/
+
 #My first React project
 Utilised:
 - React (React hooks)
 - Scss
 - React-to-pdf library (https://www.npmjs.com/package/react-to-pdf)
-Live demo: https://cvcreator-ji.netlify.app/
 
 This was a particularly fun project to achieve. It taught me a lot about state management, React hooks and controlling rendering.
 
